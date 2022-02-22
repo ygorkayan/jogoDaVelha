@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { IBordUI } from './helpers';
-import withBord from '../service/withBord';
 import Celula from './celula';
 
 export const Bord = (props: IBordUI) => {
@@ -30,4 +29,4 @@ const Container = styled.div`
   cursor: pointer;
 `;
 
-export default withBord(Bord);
+export default Bord;

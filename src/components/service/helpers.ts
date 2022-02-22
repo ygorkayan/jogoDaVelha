@@ -12,13 +12,15 @@ export const setCurrentPlayer =
   (x: number, y: number) =>
   () => {
     const newBord = bord;
+    checkForWinners(newBord, player, setPlayerWinner);
 
     if (newBord[x][y] === 0 && playerWinner === 0) {
       newBord[x][y] = player;
 
-      setBord(newBord);
-      setPlayer(player === 1 ? 2 : 1);
-      checkForWinners(newBord, player, setPlayerWinner);
+      if (!checkForWinners(newBord, player, setPlayerWinner)) {
+        setBord(newBord);
+        setPlayer(player === 1 ? 2 : 1);
+      }
     }
   };
 

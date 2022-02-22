@@ -15,6 +15,7 @@ const currentPlay: Record<typesOfBord, string> = {
 };
 
 const Container = styled.div`
+  color: white;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 160px;
   display: flex;

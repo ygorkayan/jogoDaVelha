@@ -9,7 +9,10 @@ export const checkForWinners = (bord: IBordService, currentPlay: typesOfPlays, s
 
   if (winner) {
     setWinner(currentPlay);
+    return true;
   }
+
+  return false;
 };
 
 export const checkRowsForWinners = (bord: IBordService, play: typesOfPlays) => {

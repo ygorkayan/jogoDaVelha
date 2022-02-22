@@ -1,8 +1,8 @@
 import { ComponentType, useState } from 'react';
 import { typesOfPlays, IBordService, setCurrentPlayer, showCurrentPlayer, typesOfBord } from './helpers';
-import { IBordUI } from '../ui/helpers';
+import { IApp } from '../ui/helpers';
 
-export const withLoading = (Component: ComponentType<any>) => () => {
+export const withApp = (Component: ComponentType<any>) => () => {
   const [player, setPlayer] = useState<typesOfPlays>(1);
   const [playerWinner, setPlayerWinner] = useState<typesOfBord>(0);
 
@@ -12,9 +12,10 @@ export const withLoading = (Component: ComponentType<any>) => () => {
     [0, 0, 0],
   ]);
 
-  const props: IBordUI = {
+  const props: IApp = {
     bord,
     playerWinner,
+    currentPlayer: player,
     setCurrentPlayer: setCurrentPlayer(bord, player, playerWinner, setPlayer, setBord, setPlayerWinner),
     showCurrentPlayer: showCurrentPlayer(bord),
   };
@@ -22,4 +23,4 @@ export const withLoading = (Component: ComponentType<any>) => () => {
   return <Component {...props} />;
 };
 
-export default withLoading;
+export default withApp;
